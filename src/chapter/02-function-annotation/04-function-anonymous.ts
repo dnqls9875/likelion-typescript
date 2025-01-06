@@ -6,19 +6,23 @@
 // ---------------------------------------------------------------------------------
 
 {
-  let names = ['혜수', '민기', '하영', '상구', '덕진'];
+  let names: string[] = ["혜수", "민기", "하영", "상구", "덕진"];
 
-  names = names.map((name: string): string => {
+  // ? string 생략해도 문제 없음 타입추론
+  names = names.map((name) => {
     return `${names}님`;
   });
 }
 
 {
-  let colors = 'hotpink darkred skyblue'.split(' ');
+  let colors: string[] = "hotpink darkred skyblue".split(" "); // 값의 타입 -> string[]
 
   // 타입 에너테이션을 지정하지 않아도 오류가 발생하는 이유
   // 익명 함수와 타입 추론
-  colors = colors.map((color) => {
-    return color.join(' - ');
-  });
+  const colorsWithSeperator = colors
+    .map((color) => {
+      return color;
+    })
+    .join(" - ");
+  console.log(colorsWithSeperator);
 }

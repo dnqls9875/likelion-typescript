@@ -9,7 +9,7 @@
 
 {
   // fibonacci 함수의 반환 값 타입을 지정해봅니다.
-  const fibonacci = (n: number) => {
+  const fibonacci = (n: number): number => {
     if (n < 1) return 0;
     if (n < 3) return 1;
     return fibonacci(n - 2) + fibonacci(n - 1);
@@ -17,15 +17,19 @@
 
   let fibo16 = fibonacci(16);
 
-  fibo16();
-  fibo16.tolowerCase();
+  console.log(fibo16);
+
+  // fibo16();
+  // fibo16.tolowerCase();
 }
 
 {
-  function multiply(n: number, m: number) {
-    n * m;
+  function multiply(n: number, m: number): number {
+    return n * m;
+    // return undefined; => void
   }
 
+  // * void는 함수가 아무것도 반환하지 않았다.
   // 이런! 오류가 발생했네요.
   // 오류 원인을 파악하여 문제를 해결해봅니다.
   let result = multiply(10, 20).toString();

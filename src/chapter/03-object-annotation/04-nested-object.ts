@@ -8,13 +8,25 @@
 // 아래 작성된 코드의 타입 별칭, 에너테이션을 설정합니다.
 
 {
-  const movieAinbo = {
+  type Movie = {
     title: {
-      ko: '아인보: 아마존의 전설',
-      en: 'AINBO: SPIRIT OF THE AMAZON',
+      ko: string;
+      en: string;
+    };
+    releaseDate: number;
+    director: string;
+    summary: string;
+    price: number;
+    vat: number;
+  };
+
+  const movieAinbo: Movie = {
+    title: {
+      ko: "아인보: 아마존의 전설",
+      en: "AINBO: SPIRIT OF THE AMAZON",
     },
     releaseDate: 2001,
-    director: '호세 젤라다, 리처드 클라우스',
+    director: "호세 젤라다, 리처드 클라우스",
     summary: `
       신비의 숲 아마존 깊은 곳에 위치한 칸다모 마을.
       생명과 자연의 아름다움이 넘치던 칸다모는
@@ -33,12 +45,26 @@
     vat: 0.1,
   };
 
-  const printMovieTitle = (movie) => {
+  const movieHaeulbin = {
+    title: {
+      ko: "하얼빈",
+      en: "Haeulbin",
+    },
+    director: "노종국",
+    price: 14000,
+    releaseDate: 2024,
+    summary: `하얼빈? 이제는 이우빈이다.`,
+    vat: 9.3,
+  };
+
+  type MovieType = typeof movieHaeulbin; // ^ 타입에너테이션을 손 쉽게 호출 가능
+
+  const printMovieTitle = (movie: Movie) => {
     let { title } = movie;
     console.log(`${title.ko} (${title.en})`);
   };
 
-  const calcurateMoviePrice = (movie) => {
+  const calcurateMoviePrice = (movie: Movie) => {
     let { price, vat } = movie;
     return price + price * vat;
   };

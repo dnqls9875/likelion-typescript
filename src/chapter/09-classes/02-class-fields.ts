@@ -12,14 +12,23 @@
   class Player {
     nickname: string;
     role: string;
+    score: number;
 
-    constructor(nickname: string, role: string) {
+    constructor(nickname: string, role: string, score: number = 0) {
       this.nickname = nickname;
       this.role = role;
+      this.score = score;
+    }
+
+    scoreUp(point: number): void{
+      this.score += point
+    }
+    scoreDown(point: number): void{
+      this.score -= point
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토');
+  const yamoo9 = new Player('yamoo9', '멘토', 100);
 
   yamoo9.scoreUp(20);
   console.log(yamoo9.score);

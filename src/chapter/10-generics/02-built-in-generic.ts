@@ -15,6 +15,7 @@
   // - 익스클레메이션(Exclamation)
   // - 타입 단언(Type Assertion)
   // - 제네릭(Generic)
+  // - 빌트인 제너릭 : querySelector<E extends Element = Element>(selectors: string): E | null;
   const inputEl = document.querySelector<HTMLInputElement>("#username");
 
   // 🧐 TypeScript ...
@@ -24,4 +25,5 @@
 
   const buttonEl = document.querySelector<HTMLButtonElement>(".button");
   console.log(buttonEl?.type);
+  // console.log((buttonEl as HTMLButtonElement).type);
 }

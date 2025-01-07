@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------
-// 📌 익스클레메이션 마크 (Exclamation Mark)
+// 📌 익스클레메이션 마크 (Exclamation Mark) -> ! 이다. (자바스크립트에서)
 // ⭐️ URL : https://bit.ly/3UX7ROR
 // ------------------------------------------------------------------------------
 // - 익스클레메이션 마크(`!`)를 사용하면 null, undefined 타입이 아님을 주장하는 것입니다.
@@ -10,8 +10,9 @@
 // body의 타입이 null 또는 undefined가 아님을 주장하는 익스클레메이션 마크를 설정해봅니다.
 
 {
-  const body: HTMLBodyElement | null = document.querySelector('body');
-
+  const body: HTMLBodyElement | null = document.querySelector('body')!;  // 확실한 경우에만 사용 무분별하게 사용하지 말자.
+  // const body: HTMLBodyElement | null = document.querySelector('body') as HTMLBodyElement;
+  
   body.addEventListener('click', (e) => {
     console.log('clicked body element');
   });

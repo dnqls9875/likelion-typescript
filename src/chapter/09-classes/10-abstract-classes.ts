@@ -21,9 +21,17 @@
 // - 직원은 근무 시간(working hour) 및 시급(hourly wage)을 결정해 계약합니다.
 
 {
-  class Employee {}
+  // ? 추상 클래스
+  abstract class Employee {
+    constructor(public name: string, public gender: "male" | "female") {}
 
-  class FulltimeEmployee {}
+    pay() {}
+    greet() {}
+  }
+
+  // const hy = new Employee("이우빈", 23, "male");
+
+  class FulltimeEmployee extends Employee {}
 
   class ParttimieEmployee {}
 }

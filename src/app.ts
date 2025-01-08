@@ -12,25 +12,28 @@
 // --------------------------------------------------------------------------
 import "dotenv/config";
 import express from "express";
-import type { Response, Express, Request, NextFunction } from "express";
+import type { Express } from "express";
+import entryHandler from "./handlers/entry";
+import greetingMessage from "./middlewares/greetingMessage";
+import { resolve } from "node:path";
 
-// & express.Express express안에 모듈이다 라는 뜻 Express만 나오게 하려면 import에 추가
-const app: Express = express(); // const app = new Application()
+const app: Express = express();
 
-const HOSTNAME = process.env.HOSTNAME ?? "localhost";
+// for Windows Users
+const HOSTNAME = "localhost";
+// const HOSTNAME = process.env.HOSTNAME ?? 'localhost';
 const PORT = Number(process.env.PORT) ?? 4000;
-const MESSAGE = `웹 사이트 구동 : http://${HOSTNAME}:${PORT}`;
+const MESSAGE = `웹 서버 구동 : http://${HOSTNAME}:${PORT}`;
 
-// ? Route(길) 라우트(루트) -> 웹 사이트에 작성된 경로 : '/'
-app.get(
-  "/",
-  (request: Request, response: Response, nextFunction: NextFunction): void => {
-    // ! 서버 -> 클라이언트 응답(response)
-    response.send("<h1>Hello Express.js & TypeScript</h1>");
-  }
-);
+/* Middleware -------------------------------------------------------------- */
+// 중간에 거쳐서 사용하고 싶다.
+app.use(greetingMessage);
+app.use(express.static(resolve(__dirname, "../public")));
+
+/* Routing ------------------------------------------------------------------ */
+
+app.get("/", entryHandler);
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(MESSAGE);
-  console.log(process.env);
 });

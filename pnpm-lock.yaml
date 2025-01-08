@@ -9,23 +9,26 @@ importers:
   .:
     dependencies:
       axios:
-        specifier: ^1.7.9
+        specifier: 1.7.9
         version: 1.7.9
       express:
         specifier: ^4.21.2
         version: 4.21.2
+      lodash:
+        specifier: 4.17.21
+        version: 4.17.21
     devDependencies:
       '@types/lodash':
-        specifier: ^4.17.14
+        specifier: 4.17.14
         version: 4.17.14
       '@types/node':
-        specifier: ^22.10.5
+        specifier: 22.10.5
         version: 22.10.5
       nodemon:
         specifier: ^3.1.9
         version: 3.1.9
       typescript:
-        specifier: ^5.7.2
+        specifier: 5.7.2
         version: 5.7.2
 
 packages:
@@ -274,6 +277,9 @@ packages:
   is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
+
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -729,6 +735,8 @@ snapshots:
       is-extglob: 2.1.1
 
   is-number@7.0.0: {}
+
+  lodash@4.17.21: {}
 
   math-intrinsics@1.1.0: {}
 

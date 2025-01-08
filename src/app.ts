@@ -16,6 +16,7 @@ import type { Express } from "express";
 import { resolve } from "node:path";
 import entryHandler from "./handlers/entry";
 import greetingMessage from "./middlewares/greetingMessage";
+import User from "./types/uesr";
 
 const app: Express = express();
 
@@ -45,6 +46,36 @@ app.use(express.static(resolve(__dirname, "../public")));
 //     message: "POST 요청이 홈페이지로부터 주어졌습니다.",
 //   });
 // });
+
+/* Users API ------------------------------------------------------------------ */
+
+const dummyUser: User = {
+  id: 1,
+  name: "이우빈",
+  gender: "남성",
+  education: "박사",
+  age: 35,
+};
+
+const dummyUserList: User[] = [dummyUser];
+
+// CREATE (POST) ---------------------------------------------------------------------
+// `POST /api/users
+
+// READ (GET) ---------------------------------------------------------------------
+// `GET /api/users
+app.get("/api/users", (request, response) => {
+  // Response (to Client)
+  response.status(200).json(dummyUserList);
+});
+// `GET /api/users/:id
+
+// UPDATE (PUT or PATCH) ---------------------------------------------------------------------
+// `PUT /api/users/:id
+// `PATCH /api/users/:id
+
+// DELETE (DELELTE) ---------------------------------------------------------------------
+// `DELETE /api/users/:id
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(MESSAGE);

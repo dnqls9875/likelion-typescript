@@ -10,17 +10,17 @@
 // 여러 정적 에셋 디렉토리를 사용하려면 express.static 미들웨어 함수를 여러 번 호출합니다.
 //
 // --------------------------------------------------------------------------
-import 'dotenv/config';
-import express from 'express';
-import type { Express } from 'express';
-import { resolve } from 'node:path';
-import entryHandler from './handlers/entry';
-import greetingMessage from './middlewares/greetingMessage';
+import "dotenv/config";
+import express from "express";
+import type { Express } from "express";
+import { resolve } from "node:path";
+import entryHandler from "./handlers/entry";
+import greetingMessage from "./middlewares/greetingMessage";
 
 const app: Express = express();
 
 // for Windows Users
-const HOSTNAME = 'localhost';
+const HOSTNAME = "localhost";
 // const HOSTNAME = process.env.HOSTNAME ?? 'localhost';
 const PORT = Number(process.env.PORT) ?? 4000;
 const MESSAGE = `웹 서버 구동 : http://${HOSTNAME}:${PORT}`;
@@ -28,11 +28,23 @@ const MESSAGE = `웹 서버 구동 : http://${HOSTNAME}:${PORT}`;
 /* Middleware --------------------------------------------------------------- */
 
 app.use(greetingMessage);
-app.use(express.static(resolve(__dirname, '../public')));
+app.use(express.static(resolve(__dirname, "../public")));
 
 /* Routing ------------------------------------------------------------------ */
 
-app.get('/', entryHandler);
+// GET
+app.get("/", entryHandler);
+
+// POST
+app.post("/", (request, response) => {
+  // 클라이언트 요청 URL
+  console.log(request.url);
+
+  // 서버 -> 클라이언트 응답
+  response.status(201 /* Created */).send({
+    message: "POST 요청이 홈페이지로부터 주어졌습니다.",
+  });
+});
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(MESSAGE);

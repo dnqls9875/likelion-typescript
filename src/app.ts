@@ -10,15 +10,15 @@
 // 여러 정적 에셋 디렉토리를 사용하려면 express.static 미들웨어 함수를 여러 번 호출합니다.
 //
 // --------------------------------------------------------------------------
-
+import "dotenv/config";
 import express from "express";
 import type { Response, Express, Request, NextFunction } from "express";
 
 // & express.Express express안에 모듈이다 라는 뜻 Express만 나오게 하려면 import에 추가
 const app: Express = express(); // const app = new Application()
 
-const HOSTNAME = "localhost";
-const PORT = 5000;
+const HOSTNAME = process.env.HOSTNAME ?? "localhost";
+const PORT = Number(process.env.PORT) ?? 4000;
 const MESSAGE = `웹 사이트 구동 : http://${HOSTNAME}:${PORT}`;
 
 // ? Route(길) 라우트(루트) -> 웹 사이트에 작성된 경로 : '/'
@@ -32,4 +32,5 @@ app.get(
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(MESSAGE);
+  console.log(process.env);
 });

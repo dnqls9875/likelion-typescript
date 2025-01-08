@@ -2,7 +2,7 @@
 // 📌 클래스 필드 (Class Fields)
 // ⭐️ URL : https://bit.ly/3AdXi1I
 // ------------------------------------------------------------------------------
-// - 클래스 필드 구문을 사용해 인스턴스 프로퍼티를 구성 또한 타입 에너테이션이 필요합니다.
+// - 클래스 필드 구문을 사용해 인스터스 프로퍼티를 구성 또한 타입 에너테이션이 필요합니다.
 // ------------------------------------------------------------------------------
 
 // 클래스 필드 구문을 사용해 score 타입과 초깃값을 지정하고,
@@ -14,22 +14,21 @@
     role: string;
     score: number;
 
-    constructor(nickname: string, role: string, score: number) {
+    constructor(nickname: string, role: string, score: number = 0) {
       this.nickname = nickname;
       this.role = role;
       this.score = score;
     }
 
-    scoreUp(point: number): void {
-      this.score += point;
+    scoreUp(point: number): void{
+      this.score += point
     }
-
-    scoreDown(point: number): void {
-      this.score -= point;
+    scoreDown(point: number): void{
+      this.score -= point
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토', 10);
+  const yamoo9 = new Player('yamoo9', '멘토', 100);
 
   yamoo9.scoreUp(20);
   console.log(yamoo9.score);

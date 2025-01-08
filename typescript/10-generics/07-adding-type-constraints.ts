@@ -6,13 +6,13 @@
 // --------------------------------------------------------------------------
 
 {
-  function combine<T extends object, A extends object>(o1: T, o2: A): T & A {
+  function combine<T extends object, U extends object>(o1: T, o2: U): T & U {
     return { ...o1, ...o2 };
   }
 
   // 객체가 아닌 타입이 combine 함수에 전달되더라도 TypeScript는 아무런 경고를 하지 않습니다.
   // 제네릭에 타입 제약 조건을 추가해 오류가 표시되도록 설정합니다.
-  // combine('design', 'workflow');
+  // combine("design", "workflow");
   // combine(true, 101);
 }
 
@@ -30,11 +30,11 @@
     return o.length ** powNumber;
   }
 
-  getLengthPow('get length pow');
+  getLengthPow("get length pow");
 
   getLengthPow(
     {
-      name: 'Get Length Pow',
+      name: "Get Length Pow",
       length: 7,
     },
     3

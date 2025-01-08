@@ -14,14 +14,16 @@
   function printTwice(message: string) {
     console.log(message);
     console.log(message);
-    return '';
+    return "";
   }
+  printTwice("hello");
 }
 
 {
   // 아래 오류가 발생한 이유는 명시적으로 반환 값의 타입이 void 임을 지정했기 때문입니다.
+  // ? 함수의 반환값이 없으면 void
   function printMessage(message: string): void {
     console.log(message);
-    return '';
+    // return ""; //% void를 명시하는것은 함수를 설계할 때 어떤 타입을 받을 것이고, 구성된 결과에 도움이 될 것 이다.
   }
 }

@@ -9,13 +9,20 @@
 // Point 타입을 인터페이스로 변경해봅니다.
 
 {
-  type Point = {
+  // Type Allas
+  type PointOne = {
     x: number;
     y: number;
   };
 
-  let pointOne: Point = { x: 10, y: 0 };
-  let pointTwo: Point = { x: -10, y: -5 };
+  // InterFace
+  interface PointTwo {
+    x: number;
+    y: number;
+  }
+
+  let pointOne: PointOne = { x: 10, y: 0 };
+  let pointTwo: PointTwo = { x: -10, y: -5 };
 }
 
 // Person 타입을 인터페이스로 변경해봅니다.
@@ -24,12 +31,18 @@
   type Person = {
     name: string;
     age: number;
-    gender: '남성' | '여성';
+    gender: "남성" | "여성";
   };
 
-  const sayHappyBirthDay = (person: Person): string => {
+  interface PersonTwo {
+    name: string;
+    age: number;
+    gender: "남성" | "여성"; // 유니온 타입 리터럴 값
+  }
+
+  const sayHappyBirthDay = (person: PersonTwo): string => {
     return `${person.name}! ${person.age} 번째 생일을 생일 축하해! 🎉`;
   };
 
-  console.log(sayHappyBirthDay({ name: '이수연', age: 36, gender: '여성' }));
+  console.log(sayHappyBirthDay({ name: "이수연", age: 36, gender: "여성" }));
 }

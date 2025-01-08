@@ -5,8 +5,8 @@
 // - 게터, 세터를 사용해 비공개 프로퍼티 조합을 읽거나, 쓸 수 있도록 구성할 수 있습니다.
 // ------------------------------------------------------------------------------
 
-// score 프로퍼티를 외부에서 읽을 수 있도록 설정합니다.
-// 단, 직접 score 프로퍼티 값을 수정할 수는 없습니다.
+// score 프로퍼티를 읽을 수 있도록 설정합니다.
+// 단, 직접 score 프로퍼티 값을 수정할 수는 없습니다. Getter
 
 // fullName 프로퍼티를 구성합니다.
 // - getter를 사용해 `role nickname` 조합 값을 반환하도록 합니다.
@@ -26,20 +26,20 @@ type FullName = string | { role: string; nickname: string };
     }
 
     get fullName() {
-      // return this.role + ' ' + this.nickname;
+      // return this.role + " " + this.nickname;
       // return `${this.role} ${this.nickname}`;
       const { role, nickname } = this;
       return `${role} ${nickname}`;
     }
 
     set fullName(option: FullName) {
-      // option이 string인 경우: 'role nickname'
-      if (typeof option === 'string') {
-        const [role, nickname] = option.split(' '); // ['role', 'nickname']
-        this.updateFullName(role, nickname);
+      // options이 string인 경우 :
+      if (typeof option === "string") {
+        const [role, nickname] = option.split(" "); // ['role', 'nickname']
+        this.role = role;
+        this.nickname = nickname;
       }
-
-      // option이 object인 경우: { role: '...', nickname: '...' }
+      // options이 object인 경우 :
       else {
         const { role, nickname } = option;
         this.updateFullName(role, nickname);
@@ -73,7 +73,7 @@ type FullName = string | { role: string; nickname: string };
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토');
+  const yamoo9 = new Player("yamoo9", "멘토");
 
   // READ
   console.log(yamoo9.score);
@@ -83,9 +83,6 @@ type FullName = string | { role: string; nickname: string };
 
   console.log(yamoo9.fullName);
 
-  yamoo9.fullName = 'instructor yamoo9';
-  console.log(yamoo9.fullName);
-
-  yamoo9.fullName = { role: '에듀케이터', nickname: '야무' };
+  yamoo9.fullName = "instructor yamoo9";
   console.log(yamoo9.fullName);
 }

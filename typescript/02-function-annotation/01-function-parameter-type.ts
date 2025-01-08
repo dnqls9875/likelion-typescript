@@ -8,36 +8,26 @@
 // ---------------------------------------------------------------------------------
 
 {
-  /**
-   * 난수를 반환하는 함수
-   * ECMAScript(JavaScript) vs. TypeScript
-   * @param n number
-   */
-  function getRandom(n) {
-    if (typeof n !== 'number') {
-      throw new TypeError(
-        `n 매개변수 타입은 number여야 합니다. (전달 값 타입 ${typeof n})`
-      );
-    }
+  function getRandom(n: number) {
     return Math.floor(Math.random() * n);
   }
 
   getRandom(101);
-  getRandom('101');
-  getRandom('one zero one');
+  // getRandom("101");
+  // getRandom("one zero one");
 
   /**
    * 최솟값, 최댓값 사이의 난수를 반환하는 함수
    * @param min number
    * @param max number
    */
-  function getRandomMinMax(min, max) {
-    min();
-    max.toLowerCase();
+  function getRandomMinMax(min: number, max: number) {
+    // min();
+    // max.toLowerCase();
     return getRandom(max - min) + min;
   }
 
-  getRandomMinMax('min', 'max');
+  console.log(getRandomMinMax(10_100, 100_000));
 }
 
 // ---------------------------------------------------------------------------------
@@ -50,9 +40,10 @@
     isMorning: boolean,
     currentYear: number
   ) => {
-    let thisTime = isMorning ? '오전' : '오후';
+    let thisTime = isMorning ? "오전" : "오후";
     return `안녕 ${toName}! 좋은 ${thisTime}이 되길 바라. 행복한 ${currentYear} 한 해가 되길! - 당신의 ${fromName}`;
   };
 
   // 함수 매개변수 영역을 폴딩(folding)한 후, 함수 실행 구문을 작성해봅니다.
+  console.log(sendGreeting("우빈", "종국", false, new Date().getFullYear()));
 }

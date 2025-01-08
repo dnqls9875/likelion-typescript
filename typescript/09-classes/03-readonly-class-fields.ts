@@ -27,9 +27,9 @@
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토');
+  const yamoo9 = new Player("yamoo9", "멘토");
 
-  // 🚨 Player 객체 생성 이후 nickname, role 변경이 되서는 안됩니다!
+  // 🚨 Player 객체 생성 이후 nickname, role 변경이 되서는 안됩니다! (읽기 전용)
   // yamoo9.nickname = 'employer';
   // yamoo9.role = 'CEO';
 

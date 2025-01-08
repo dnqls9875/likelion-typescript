@@ -7,9 +7,9 @@
 
 {
   type Point = {
-    x: number;
-    y: number;
-    z: number;
+    x: number; // 필수!! (required)
+    y: number; // 필수!! (required)
+    z?: number; // ! 선택? (optional) => 옵셔널 ? 프로퍼티에 ?추가
   };
 
   const generatePoint = (x: number, y: number): Point => {

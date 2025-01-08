@@ -19,18 +19,20 @@
       this.role = role;
     }
 
-    scoreUp(point: number): void {
+    public scoreUp(point: number): void {
       this.score += point;
     }
 
-    scoreDown(point: number): void {
+    public scoreDown(point: number): void {
       this.score -= point;
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토');
+  const yamoo9 = new Player("yamoo9", "멘토");
 
   yamoo9.scoreUp(20);
+  yamoo9.scoreUp(23);
+
   console.log(yamoo9.score);
 
   yamoo9.scoreDown(12);

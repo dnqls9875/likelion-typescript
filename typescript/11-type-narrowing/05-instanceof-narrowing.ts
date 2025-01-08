@@ -9,15 +9,14 @@
 {
   // date 타입 중 Date 클래스의 인스턴스 여부를 판별하도록 타입 범위를 축소합니다.
   const printFullDate = (date: string | Date) => {
-    if (typeof date === 'string') {
-      return new Date(date).toLocaleString();
+    if (typeof date === "string") {
+      return date.toLocaleString();
     }
-
-    return date.toLocaleString();
+    return new Date(date).toLocaleString();
   };
 
   printFullDate(new Date());
-  printFullDate('2022. 08. 12');
+  printFullDate("2022. 08. 12");
 }
 
 {
@@ -44,6 +43,6 @@
     }
   }
 
-  printName(new Employee('cikd3zlwj@9', 'yamoo9'));
-  printName(new Company('EUID'));
+  printName(new Employee("cikd3zlwj@9", "yamoo9"));
+  printName(new Company("EUID"));
 }

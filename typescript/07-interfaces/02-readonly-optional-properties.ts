@@ -9,18 +9,18 @@
 
 {
   interface Person {
-    name: string;
+    readonly name: string;
     age: number;
-    gender: '남성' | '여성';
+    gender?: "남성" | "여성";
   }
 
   const sayHappyBirthDay = (person: Person): string => {
     return `${person.name}! ${person.age} 번째 생일을 생일 축하해! 🎉`;
   };
 
-  const suyouen = { name: '이수연', age: 36 };
+  const suyouen = { name: "이수연", age: 36 };
 
-  suyouen.name = '이수정';
+  // suyouen.name = "이수정";
 
-  console.log(sayHappyBirthDay(suyouen));
+  console.log(sayHappyBirthDay({ name: "이우빈", age: 31 }));
 }

@@ -14,11 +14,11 @@
     hasWheel: boolean;
   }
 
-  interface VerticalTypeMouse {
+  interface VerticalTypeMouse   {
     direction: 'Vertial';
   }
 
-  interface SpecialMouse {
+  interface SpecialMouse extends Mouse,VerticalTypeMouse {
     releaseDate: number;
   }
 
@@ -46,7 +46,7 @@
     email: string;
   }
 
-  interface Developer {
+  interface Developer extends Human, Employee {
     role: string;
     career: number;
     programmingLanguages: string[];

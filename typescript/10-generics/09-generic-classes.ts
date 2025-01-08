@@ -36,6 +36,7 @@
 
     add(newItem: T) {
       this.list.push(newItem);
+      // this.#list.push(newItem)
     }
 
     remove(removeItemId: string) {
@@ -44,25 +45,22 @@
   }
 
   const myMusicPlaylist = new Playlist<Music>();
-  myMusicPlaylist.add({ id: 'music-1', title: 'Rush Hour', artist: 'Crush' });
+  myMusicPlaylist.add({ id: "music-1", title: "Rush Hour", artist: "Crush" });
 
   const movie1: Movie = {
-    id: 'movie-1',
-    title: '자백',
-    director: '윤종석',
+    id: "movie1",
+    title: "자백",
+    director: "윤종석",
     releaseDate: 2022,
   };
-
   const movie2: Movie = {
-    id: 'movie-2',
-    title: '시간을 꿈꾸는 소녀',
-    director: '박혁지',
+    id: "movie2",
+    title: "시간을 꿈꾸는 소녀",
+    director: "박혁지",
     releaseDate: 2023,
   };
 
-  const myMoviePlaylist = new Playlist<Movie>([movie1]);
-
-  myMoviePlaylist.add(movie2);
+  const myMoviePlaylist = new Playlist<Movie>([movie1, movie2]);
 
   myMoviePlaylist.remove(movie2.id);
 }

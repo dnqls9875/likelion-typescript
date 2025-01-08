@@ -34,8 +34,8 @@
     }
 
     set fullName(options: FullName) {
-      if (typeof options === 'string') {
-        const [role, nickname] = options.split(' ');
+      if (typeof options === "string") {
+        const [role, nickname] = options.split(" ");
         this.role = role;
         this.nickname = nickname;
       } else {
@@ -67,7 +67,7 @@
     }
   }
 
-  const yamoo9 = new AdvancedPlayer('yamoo9', '멘토');
+  const yamoo9 = new AdvancedPlayer("yamoo9", "멘토");
 
   yamoo9.fullScoreUp();
   console.log(yamoo9.score);

@@ -33,7 +33,7 @@
     }
   }
 
-  const yamoo9 = new Player('yamoo9', '멘토');
+  const yamoo9 = new Player("yamoo9", "멘토");
 
   // yamoo9.boostScoreUp();
   // console.log(yamoo9.score);

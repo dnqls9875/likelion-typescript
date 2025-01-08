@@ -11,15 +11,15 @@
 {
   let iDontKnow: unknown = '어떤 타입인지 알 수 없어요.';
 
-  let numberOfCharacters = iDontKnow.length;
+  let numberOfCharacters = (iDontKnow as string).length;  // & 괄호로 묶어 단언해 줄 수 있다.
 
   console.log(numberOfCharacters);
 }
 
 // body가 참조하는 타입을 단언해봅니다.
-
+// 타입에 대한 명시적으로 지정하자 vs 타입 추론이 가능한 건 타입을 지정하지 말자에 대한 컨벤션 규칙에 의견 대립이 있을 것 같다.
 {
-  const body: HTMLBodyElement | null = document.querySelector('body');
+  const body: HTMLBodyElement | null = document.querySelector('body') as HTMLBodyElement;
 
   body.addEventListener('click', (e) => {
     console.log('clicked body element');

@@ -12,17 +12,23 @@
 // --------------------------------------------------------------------------
 
 import express from "express";
-const app /* : Application */ = express(); // const app = new Application()
+import type { Response, Express, Request, NextFunction } from "express";
+
+// & express.Express express안에 모듈이다 라는 뜻 Express만 나오게 하려면 import에 추가
+const app: Express = express(); // const app = new Application()
 
 const HOSTNAME = "localhost";
 const PORT = 5000;
 const MESSAGE = `웹 사이트 구동 : http://${HOSTNAME}:${PORT}`;
 
 // ? Route(길) 라우트(루트) -> 웹 사이트에 작성된 경로 : '/'
-app.get("/", (request, response, nextFunction) => {
-  // 서버 -> 클라이언트 응답(response)
-  response.send("<h1>Hello Express.js & TypeScript</h1>");
-});
+app.get(
+  "/",
+  (request: Request, response: Response, nextFunction: NextFunction): void => {
+    // ! 서버 -> 클라이언트 응답(response)
+    response.send("<h1>Hello Express.js & TypeScript</h1>");
+  }
+);
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(MESSAGE);
